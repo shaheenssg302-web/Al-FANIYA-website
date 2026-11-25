@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AL FANIYA INTERNATIONAL COMPANY LIMITED — Institutional Catering Solutions</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, and Cairo/Tajawal for Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            slateDark: '#1A2228',
+            slateCharcoal: '#242E35',
+            slateMid: '#323F49',
+            brandOrange: '#E87722',
+            brandOrangeHover: '#D96B1A',
+            alabaster: '#F7F8FA',
+            stoneSurface: '#EFECE6'
+          },
+          fontFamily: {
+            sans: ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+            arabic: ['Cairo', 'Tajawal', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFFFFF;
+      color: #1A2228;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    }
+
+    .arabic-text {
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+
+    /* Language visibility filter states */
+    body[data-lang="en"] .lang-ar-only {
+      display: none !important;
+    }
+    body[data-lang="ar"] .lang-en-only {
+      display: none !important;
+    }
+
+    /* Subtle geometric pattern accent inspired by corporate Saudi hospitality */
+    .grid-pattern {
+      background-image: radial-gradient(rgba(232, 119, 34, 0.14) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Ensure images loaded via user upload fill slots cleanly */
+    .slot-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    .slot-image.has-image {
+      display: block;
+    }
+    .slot-image.has-image + .slot-placeholder {
+      display: none;
+    }
+  </style>
+</head>
+<body data-lang="all" class="antialiased selection:bg-brandOrange selection:text-white">
+
+  <!-- Toast / Status Notification Banner (replaces alert()) -->
+  <div id="statusToast" class="fixed bottom-5 right-5 z-50 max-w-sm transform translate-y-24 opacity-0 transition-all duration-300 bg-slateDark text-white border border-brandOrange/50 rounded-xl shadow-2xl p-4 flex items-start gap-3 pointer-events-none">
+    <div class="w-2.5 h-2.5 mt-1.5 rounded-full bg-brandOrange shrink-0"></div>
+    <p id="statusToastMsg" class="text-xs sm:text-sm leading-relaxed"></p>
+  </div>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="sticky top-0 z-40 bg-slateDark/95 backdrop-blur-md text-white border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20 gap-3">
+
+        <!-- Brand Mark + Name -->
+        <a href="#hero" class="flex items-center gap-3 group min-w-0">
+          <!-- Three slanted orange bars mark inspired by PDF logo -->
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/5 border border-white/15 flex items-center justify-center shrink-0 group-hover:border-brandOrange transition-colors">
+            <svg viewBox="0 0 36 36" class="w-6 h-6" fill="none" aria-hidden="true">
+              <rect x="6" y="16" width="5" height="14" rx="1" transform="rotate(-35 6 16)" fill="#E87722" />
+              <rect x="13" y="11" width="5" height="14" rx="1" transform="rotate(-35 13 11)" fill="#E87722" />
+              <rect x="20" y="6" width="5" height="14" rx="1" transform="rotate(-35 20 6)" fill="#E87722" />
+            </svg>
+          </div>
+          <div class="truncate">
+            <div class="font-display font-extrabold text-xs sm:text-sm tracking-wider uppercase text-white truncate">
+              AL FANIYA INTERNATIONAL CO. LTD.
+            </div>
+            <div class="text-[10px] sm:text-xs tracking-widest uppercase text-brandOrange font-semibold truncate">
+              INSTITUTIONAL CATERING • MAKKAH, KSA
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop Quick Navigation -->
+        <nav class="hidden xl:flex items-center gap-5 text-xs font-medium text-gray-300">
+          <a href="#ceo-message" class="hover:text-brandOrange transition-colors">CEO Message</a>
+          <a href="#overview" class="hover:text-brandOrange transition-colors">Overview</a>
+          <a href="#vision-values" class="hover:text-brandOrange transition-colors">Vision & Values</a>
+          <a href="#capabilities" class="hover:text-brandOrange transition-colors">Capabilities</a>
+          <a href="#operations" class="hover:text-brandOrange transition-colors">Operations & QA</a>
+          <a href="#track-record" class="hover:text-brandOrange transition-colors">Track Record</a>
+          <a href="#credentials" class="hover:text-brandOrange transition-colors">Credentials</a>
+          <a href="#gallery" class="hover:text-brandOrange transition-colors">Photo Slots</a>
+        </nav>
+
+        <!-- Right Controls: Language Filter & Ready to Deliver CTA -->
+        <div class="flex items-center gap-2 shrink-0">
+          <!-- Language Toggle (All / EN / AR) -->
+          <div class="inline-flex rounded-lg bg-slateCharcoal p-1 border border-white/10 text-[11px] font-semibold" role="group" aria-label="Language View Filter">
+            <button type="button" data-lang-btn="all" class="lang-btn px-2.5 py-1 rounded-md bg-brandOrange text-white transition">All</button>
+            <button type="button" data-lang-btn="en" class="lang-btn px-2.5 py-1 rounded-md text-gray-300 hover:text-white transition">EN</button>
+            <button type="button" data-lang-btn="ar" class="lang-btn px-2.5 py-1 rounded-md text-gray-300 hover:text-white transition">AR</button>
+          </div>
+
+          <a href="#ready-to-deliver" class="hidden sm:inline-flex items-center px-3.5 py-2 rounded-lg bg-brandOrange hover:bg-brandOrangeHover text-white text-xs font-bold tracking-wide transition shadow-lg shadow-brandOrange/20">
+            Ready to Deliver
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobileMenuBtn" type="button" class="xl:hidden p-2.5 rounded-lg bg-slateCharcoal border border-white/10 text-gray-200 hover:text-white" aria-label="Toggle Menu">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Navigation -->
+      <div id="mobileMenu" class="hidden xl:hidden pb-4 pt-2 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+        <a href="#ceo-message" class="px-3 py-2 rounded-lg bg-slateCharcoal hover:bg-slateMid">CEO Message</a>
+        <a href="#overview" class="px-3 py-2 rounded-lg bg-slateCharcoal hover:bg-slateMid">Overview</a>
+        <a href="#vision-values" class="px-3 py-2 rounded-lg bg-slateCharcoal hover:bg-slateMid">Vision & Values</a>
+        <a href="#capabilities" class="px-3 py-2 rounded-lg bg-slateCharcoal hover:bg-slateMid">Capabilities</a>
+        <a href="#operations" class="px-3 py-2 rounded-lg bg-slateCharcoal hover:bg-slateMid">Operations & QA</a>
+        <a href="#track-record" class="px-3 py-2 rounded-lg bg-slateCharcoal hover:bg-slateMid">Track Record</a>
+        <a href="#credentials" class="px-3 py-2 rounded-lg bg-slateCharcoal hover:bg-slateMid">Credentials</a>
+        <a href="#gallery" class="px-3 py-2 rounded-lg bg-slateCharcoal hover:bg-slateMid">Photo Slots</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       1. HERO SECTION (PDF Page 1)
+  ========================================================= -->
+  <section id="hero" class="relative bg-slateDark text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+        <!-- Left Editorial Column -->
+        <div class="lg:col-span-7 space-y-6 z-10">
+          <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-semibold tracking-wider uppercase text-brandOrange">
+            <span>CAPABILITY PROFILE</span>
+            <span class="text-white/40">|</span>
+            <span class="text-white">Makkah</span>
+            <span class="text-white/40">|</span>
+            <span class="text-white">Kingdom of Saudi Arabia</span>
+          </div>
+
+          <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-gray-300">
+            AL FANIYA INTERNATIONAL COMPANY LIMITED
+          </p>
+
+          <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08]">
+            INSTITUTIONAL <span class="text-brandOrange">CATERING</span> SOLUTIONS
+          </h1>
+
+          <p class="text-base sm:text-lg lg:text-xl text-gray-200 max-w-2xl leading-relaxed">
+            High-volume food production, site catering, in-house dining and controlled meal logistics.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="#capabilities" class="px-6 py-3.5 rounded-xl bg-brandOrange hover:bg-brandOrangeHover text-white font-semibold text-sm transition shadow-lg shadow-brandOrange/25">
+              Explore Capabilities
+            </a>
+            <a href="#image-loader-bar" class="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-semibold text-sm transition">
+              Image Slots & Local Preview
+            </a>
+          </div>
+
+          <!-- Quick Core Pillars Strip -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/10 text-xs">
+            <div class="bg-slateCharcoal/80 rounded-xl p-3 border border-white/5">
+              <div class="text-brandOrange font-bold">01</div>
+              <div class="font-semibold text-white mt-0.5">Site Catering</div>
+            </div>
+            <div class="bg-slateCharcoal/80 rounded-xl p-3 border border-white/5">
+              <div class="text-brandOrange font-bold">02</div>
+              <div class="font-semibold text-white mt-0.5">In-House Dining</div>
+            </div>
+            <div class="bg-slateCharcoal/80 rounded-xl p-3 border border-white/5">
+              <div class="text-brandOrange font-bold">03</div>
+              <div class="font-semibold text-white mt-0.5">Central Production</div>
+            </div>
+            <div class="bg-slateCharcoal/80 rounded-xl p-3 border border-white/5">
+              <div class="text-brandOrange font-bold">04</div>
+              <div class="font-semibold text-white mt-0.5">Meal Logistics</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Image Slot: page-01-hero-kitchen.jpg -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-2xl overflow-hidden border border-white/15 bg-slateCharcoal shadow-2xl aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/4.3]" data-slot-container="page-01-hero-kitchen.jpg">
+            <img data-slot="page-01-hero-kitchen.jpg" src="images/page-01-hero-kitchen.jpg" alt="AL FANIYA institutional kitchen chefs preparing high-volume meals" class="slot-image" />
+            <div class="slot-placeholder w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-slateCharcoal via-slateMid to-slateDark">
+              <span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-brandOrange/20 text-brandOrange border border-brandOrange/40 mb-3">
+                PDF Page 1 • Hero Image Slot
+              </span>
+              <p class="font-mono text-sm sm:text-base font-bold text-white break-all">page-01-hero-kitchen.jpg</p>
+              <p class="text-xs text-gray-300 mt-2 max-w-xs">
+                Place the full-bleed kitchen & meal tray preparation photo from Page 1 here.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       HELPER BAR: IMAGE SLOT MAPPING & LOCAL BROWSER PREVIEW
+  ========================================================= -->
+
+  <!-- =========================================================
+       2. CEO'S MESSAGE (PDF Page 2)
+  ========================================================= -->
+  <section id="ceo-message" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+        <!-- CEO Portrait Slot: page-02-ceo-tahir-yousaf.jpg -->
+        <div class="lg:col-span-4">
+          <div class="bg-alabaster rounded-2xl p-4 border border-gray-200 shadow-sm">
+            <div class="relative rounded-xl overflow-hidden aspect-[4/4.4] bg-gray-200 border border-gray-200" data-slot-container="page-02-ceo-tahir-yousaf.jpg">
+              <img data-slot="page-02-ceo-tahir-yousaf.jpg" src="images/page-02-ceo-tahir-yousaf.jpg" alt="Mr. Tahir Yousaf, Chief Executive Officer" class="slot-image" />
+              <div class="slot-placeholder w-full h-full flex flex-col items-center justify-center p-5 text-center bg-gradient-to-b from-gray-100 to-gray-200">
+                <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-brandOrange/15 text-brandOrange mb-2">
+                  PDF Page 2 • Portrait Slot
+                </span>
+                <p class="font-mono text-xs sm:text-sm font-bold text-slateDark break-all">page-02-ceo-tahir-yousaf.jpg</p>
+                <p class="text-[11px] text-gray-600 mt-1.5">CEO portrait with teal/black executive framing</p>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-brandOrange">AL FANIYA INTERNATIONAL COMPANY LIMITED</p>
+              <h3 class="font-display text-base font-extrabold text-slateDark mt-1">
+                Mr. Tahir Yousaf
+              </h3>
+              <p class="text-xs text-gray-700 font-medium mt-1 leading-relaxed">
+                Chief Executive Officer and General Supervisor of Direct Hajj and Courtesy Hajj
+              </p>
+              <p class="text-[11px] font-bold uppercase tracking-wider text-gray-500 mt-2">
+                AL FANIYA INSTITUTIONAL CATERING
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full CEO Message Copy -->
+        <div class="lg:col-span-8 space-y-5">
+          <div class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+            <span>AL FANIYA INTERNATIONAL COMPANY LIMITED</span>
+          </div>
+
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slateDark tracking-tight">
+            CEO'S MESSAGE
+          </h2>
+
+          <div class="w-16 h-1.5 bg-brandOrange rounded-full"></div>
+
+          <div class="space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed">
+            <p>
+              It is our great pleasure to welcome you all on behalf of <strong>AL FANIYA Institutional Catering</strong>.
+            </p>
+            <p>
+              Since our establishment, we have been committed to providing outstanding catering services while maintaining the highest standards of quality, professionalism, and customer satisfaction. In line with Saudi Arabia's Vision 2030, we proudly support the Kingdom's ambitious goal of welcoming 30 million Hajj and Umrah pilgrims by 2030.
+            </p>
+            <p>
+              At AL FANIYA Institutional Catering, our mission is to deliver high-quality food and catering solutions that meet the diverse needs of pilgrims, visitors, and guests. We place great importance on food quality, hygiene, safety, and operational excellence to ensure a healthy, comfortable, and satisfying dining experience. Customer satisfaction remains our top priority, motivating us to continuously improve our services through innovation, teamwork, and dedication.
+            </p>
+            <p>
+              We are confident that our ongoing commitment to excellence will contribute to the success of Saudi Arabia's Vision 2030 and strengthen the Kingdom's position as a leading destination for pilgrims and visitors from around the world. We sincerely appreciate your trust, cooperation, and continued support, and pray that Allah grants us success and guidance in our mission to serve the Guests of the Most Merciful with sincerity, care, and excellence. Peace, mercy, and blessings of Allah be upon you.
+            </p>
+          </div>
+
+          <div class="bg-alabaster border-l-4 border-brandOrange rounded-r-xl p-4 sm:p-5 mt-6">
+            <p class="font-display font-bold text-slateDark text-sm sm:text-base">
+              Mr. Tahir Yousaf, Chief Executive Officer and General Supervisor of Direct Hajj and Courtesy Hajj
+            </p>
+            <p class="text-xs font-semibold uppercase tracking-wider text-gray-600 mt-1">
+              AL FANIYA INSTITUTIONAL CATERING
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       3. COMPANY OVERVIEW & PROFILE (PDF Pages 3–6, 20)
+  ========================================================= -->
+  <section id="overview" class="py-16 sm:py-24 bg-alabaster border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+      <!-- Company Overview (Page 3) -->
+      <div class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-10 shadow-sm">
+        <div class="max-w-4xl space-y-4">
+          <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+            AL FANIYA INTERNATIONAL COMPANY LIMITED
+          </div>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slateDark">
+            Company Overview
+          </h2>
+          <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+            AL FANIYA Institutional Catering is dedicated to providing a comprehensive range of professional services designed to meet the needs of pilgrims from diverse backgrounds and nationalities. Our primary objective is to enhance their overall experience by ensuring comfort, convenience, and quality service throughout their journey. From their arrival to their final departure, we focus on delivering reliable support and creating a welcoming environment that reflects our commitment to excellence and hospitality.
+          </p>
+          <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+            Our services are built around efficient planning, professional coordination, and customer-focused operations. We emphasize high standards of food preparation, catering management, hygiene, and quality control to ensure that every meal meets the expectations of our guests. Our trained staff and dedicated teams work continuously to maintain smooth operations, provide timely assistance, and ensure that all catering requirements are handled with care and professionalism. We also focus on effective resource management and maintaining consistent service standards across all operational activities.
+          </p>
+          <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+            Through continuous improvement, teamwork, and a strong commitment to customer satisfaction, AL FANIYA Institutional Catering strives to make every guest's experience comfortable, pleasant, and memorable. Our dedication to quality, safety, and operational efficiency reflects our commitment to supporting the Kingdom of Saudi Arabia's hospitality sector and Vision 2030. We aim to serve every guest with sincerity, respect, and excellence, ensuring that their needs remain at the center of everything we do.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bilingual "من نحن / Who We Are?" (Page 6) -->
+      <div class="lang-en-only grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <!-- Arabic Side -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 shadow-sm arabic-text space-y-4">
+          <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+            <span class="text-xs font-bold text-brandOrange">AL FANIYA INTERNATIONAL COMPANY LIMITED</span>
+            <h3 class="text-2xl font-extrabold text-slateDark">من نحن</h3>
+          </div>
+          <p class="text-gray-700 text-base leading-loose">
+            تأسست شركة غرس للخدمات الغذائية لتكون إحدى الشركات الرائدة في تقديم خدمات الإعاشة المتكاملة، بما يلبي احتياجات القطاعات المختلفة من شركات مؤسسات مستشفيات، مدارس ومواقع العمل الميدانية. نحرص على تقديم وجبات عالية الجودة تجمع بين الطعم الأصيل والمعايير الصحية العالمية، مع التزام تام بمعايير السلامة الغذائية وتوفير حلول مرنة تناسب جميع أنواع العملاء.
+          </p>
+          <p class="text-xs font-bold text-gray-500 pt-2">AL FANIYA INSTITUTIONAL CATERING</p>
+        </div>
+
+        <!-- English Side -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 shadow-sm space-y-4">
+          <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+            <h3 class="font-display text-2xl font-extrabold text-slateDark">Who We Are?</h3>
+            <span class="text-xs font-bold text-brandOrange">PAGE 06</span>
+          </div>
+          <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+            Ghrs Food Services Company was established to be a leading provider of comprehensive catering services, meeting the needs of various sectors including companies, institutions, hospitals, schools, and fieldwork sites.
+          </p>
+          <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+            We are committed to delivering high-quality meals that combine authentic flavors with international health standards, while fully adhering to food safety requirements and offering flexible services that suit all types of clients.
+          </p>
+          <p class="text-xs font-bold uppercase tracking-wider text-gray-500 pt-2">AL FANIYA INTERNATIONAL COMPANY LIMITED</p>
+        </div>
+      </div>
+
+      <!-- Arabic-only Who We Are when AR filter active -->
+      <div class="hidden lang-ar-only bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 shadow-sm arabic-text space-y-4">
+        <h3 class="text-2xl font-extrabold text-slateDark">من نحن</h3>
+        <p class="text-gray-700 text-base leading-loose">
+          تأسست شركة غرس للخدمات الغذائية لتكون إحدى الشركات الرائدة في تقديم خدمات الإعاشة المتكاملة، بما يلبي احتياجات القطاعات المختلفة من شركات مؤسسات مستشفيات، مدارس ومواقع العمل الميدانية. نحرص على تقديم وجبات عالية الجودة تجمع بين الطعم الأصيل والمعايير الصحية العالمية، مع التزام تام بمعايير السلامة الغذائية وتوفير حلول مرنة تناسب جميع أنواع العملاء.
+        </p>
+      </div>
+
+      <!-- Company Profile: Reliable catering for complex operations (Page 20) -->
+      <div class="bg-slateDark text-white rounded-2xl p-6 sm:p-10 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+              COMPANY PROFILE • AL FANIYA INTERNATIONAL COMPANY LIMITED
+            </span>
+            <span class="text-xs font-bold text-gray-400">02</span>
+          </div>
+
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold leading-tight">
+            Reliable catering for complex operations
+          </h2>
+
+          <p class="text-gray-200 text-sm sm:text-base leading-relaxed">
+            Al Faniya delivers organized catering solutions for institutions, workforce sites, residential facilities, hospitality environments and large-scale operations across the Kingdom of Saudi Arabia.
+          </p>
+
+          <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+            Our delivery model integrates menu planning, procurement, central-kitchen production, staffing, food safety, transportation, on-site service and performance reporting. Specialist catering experience is mobilized through an operating partner where required.
+          </p>
+        </div>
+
+        <!-- Three Numbered Pillars -->
+        <div class="lg:col-span-5 space-y-3">
+          <div class="flex items-center gap-4 bg-white rounded-xl p-4 text-slateDark shadow">
+            <div class="w-12 h-12 rounded-xl bg-brandOrange text-white font-display font-extrabold flex items-center justify-center text-base shrink-0">
+              01
+            </div>
+            <div class="font-display font-bold text-base sm:text-lg">Quality-led</div>
+          </div>
+
+          <div class="flex items-center gap-4 bg-white rounded-xl p-4 text-slateDark shadow">
+            <div class="w-12 h-12 rounded-xl bg-brandOrange text-white font-display font-extrabold flex items-center justify-center text-base shrink-0">
+              02
+            </div>
+            <div class="font-display font-bold text-base sm:text-lg">Operationally disciplined</div>
+          </div>
+
+          <div class="flex items-center gap-4 bg-white rounded-xl p-4 text-slateDark shadow">
+            <div class="w-12 h-12 rounded-xl bg-brandOrange text-white font-display font-extrabold flex items-center justify-center text-base shrink-0">
+              03
+            </div>
+            <div class="font-display font-bold text-base sm:text-lg">Scalable by demand</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       4. VISION, MISSION & CORE VALUES (PDF Pages 7–9)
+  ========================================================= -->
+  <section id="vision-values" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+
+      <!-- Section Heading -->
+      <div class="max-w-3xl space-y-2">
+        <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+          STRATEGIC DIRECTION • AL FANIYA INSTITUTIONAL CATERING
+        </span>
+        <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slateDark">
+          Vision, Mission & Core Values
+        </h2>
+      </div>
+
+      <!-- Vision & Mission Cards (Page 7) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Vision -->
+        <div class="bg-alabaster rounded-2xl p-6 sm:p-8 border border-gray-200 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slateDark">Vision</h3>
+            <span class="arabic-text text-xl font-extrabold text-brandOrange">رؤيتنا</span>
+          </div>
+          <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+            To become the leading brand in catering and food services across the Kingdom by excelling in quality, innovation, and reliability.
+          </p>
+          <p class="arabic-text text-gray-800 text-base leading-loose border-t border-gray-200 pt-3">
+            أن نكون العلامة الأبرز في عالم الإعاشة والخدمات الغذائية على مستوى المملكة، من خلال التميز في الجودة والابتكار والموثوقية.
+          </p>
+        </div>
+
+        <!-- Mission -->
+        <div class="bg-alabaster rounded-2xl p-6 sm:p-8 border border-gray-200 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slateDark">Mission</h3>
+            <span class="arabic-text text-xl font-extrabold text-brandOrange">رسالتنا</span>
+          </div>
+          <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+            To provide premium catering services that meet the daily needs of our clients, through qualified staff, carefully selected ingredients, and operational systems that ensure consistent quality in every meal.
+          </p>
+          <p class="arabic-text text-gray-800 text-base leading-loose border-t border-gray-200 pt-3">
+            تقديم خدمات إعاشة راقية تلبي احتياجات عملائنا اليومية، من خلال كوادر مؤهلة، ومكونات مختارة بعناية، وأنظمة تشغيل تضمن الجودة في كل وجبة.
+          </p>
+        </div>
+      </div>
+
+      <!-- Core Values (Page 8) -->
+      <div class="space-y-6">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slateDark">Our Values</h3>
+          <span class="arabic-text text-xl font-extrabold text-brandOrange">قيمنا</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <!-- Quality -->
+          <div class="rounded-2xl border border-gray-200 bg-white p-5 hover:border-brandOrange transition shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-brandOrange/10 text-brandOrange font-display font-extrabold flex items-center justify-center text-sm mb-3">01</div>
+              <h4 class="font-display font-bold text-slateDark text-base">Quality</h4>
+              <p class="arabic-text text-sm font-bold text-brandOrange mt-0.5">الجودة</p>
+              <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                We ensure high-quality standards in every meal we serve.
+              </p>
+            </div>
+            <p class="arabic-text text-xs text-gray-600 mt-3 pt-3 border-t border-gray-100 leading-relaxed">
+              نحرص على تقديم وجبات بمعايير عالية الجودة.
+            </p>
+          </div>
+
+          <!-- Commitment -->
+          <div class="rounded-2xl border border-gray-200 bg-white p-5 hover:border-brandOrange transition shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-brandOrange/10 text-brandOrange font-display font-extrabold flex items-center justify-center text-sm mb-3">02</div>
+              <h4 class="font-display font-bold text-slateDark text-base">Commitment</h4>
+              <p class="arabic-text text-sm font-bold text-brandOrange mt-0.5">الالتزام</p>
+              <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                We deliver on our promises in terms of time, efficiency, and quantity.
+              </p>
+            </div>
+            <p class="arabic-text text-xs text-gray-600 mt-3 pt-3 border-t border-gray-100 leading-relaxed">
+              نفي بوعودنا في الوقت والكفاءة والكمية.
+            </p>
+          </div>
+
+          <!-- Safety -->
+          <div class="rounded-2xl border border-gray-200 bg-white p-5 hover:border-brandOrange transition shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-brandOrange/10 text-brandOrange font-display font-extrabold flex items-center justify-center text-sm mb-3">03</div>
+              <h4 class="font-display font-bold text-slateDark text-base">Safety</h4>
+              <p class="arabic-text text-sm font-bold text-brandOrange mt-0.5">السلامة</p>
+              <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                We apply the highest standards of hygiene and food safety.
+              </p>
+            </div>
+            <p class="arabic-text text-xs text-gray-600 mt-3 pt-3 border-t border-gray-100 leading-relaxed">
+              نطبق أعلى معايير النظافة وسلامة الغذاء.
+            </p>
+          </div>
+
+          <!-- Professionalism -->
+          <div class="rounded-2xl border border-gray-200 bg-white p-5 hover:border-brandOrange transition shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-brandOrange/10 text-brandOrange font-display font-extrabold flex items-center justify-center text-sm mb-3">04</div>
+              <h4 class="font-display font-bold text-slateDark text-base">Professionalism</h4>
+              <p class="arabic-text text-sm font-bold text-brandOrange mt-0.5">الاحترافية</p>
+              <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                We work with a team spirit and organized managerial and operational practices.
+              </p>
+            </div>
+            <p class="arabic-text text-xs text-gray-600 mt-3 pt-3 border-t border-gray-100 leading-relaxed">
+              نعمل بروح الفريق وبأسلوب إداري وتنفيذي منظم.
+            </p>
+          </div>
+
+          <!-- Innovation -->
+          <div class="rounded-2xl border border-gray-200 bg-white p-5 hover:border-brandOrange transition shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-9 h-9 rounded-lg bg-brandOrange/10 text-brandOrange font-display font-extrabold flex items-center justify-center text-sm mb-3">05</div>
+              <h4 class="font-display font-bold text-slateDark text-base">Innovation</h4>
+              <p class="arabic-text text-sm font-bold text-brandOrange mt-0.5">الابتكار</p>
+              <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                We continuously develop our products and services to keep up with market needs.
+              </p>
+            </div>
+            <p class="arabic-text text-xs text-gray-600 mt-3 pt-3 border-t border-gray-100 leading-relaxed">
+              نطور منتجاتنا وخدماتنا باستمرار لتواكب احتياجات السوق.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       5. INTEGRATED CAPABILITIES & SERVICE SPOTLIGHTS (Pages 9–11, 21–24)
+  ========================================================= -->
+  <section id="capabilities" class="py-16 sm:py-24 bg-alabaster border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+      <!-- 8-Item Catering Service Portfolio (Page 21) -->
+      <div class="space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+              INTEGRATED CAPABILITIES • 03
+            </span>
+            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slateDark mt-1">
+              Catering service portfolio
+            </h2>
+          </div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">
+            AL FANIYA INSTITUTIONAL CATERING
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:border-brandOrange transition">
+            <div class="text-xs font-extrabold text-brandOrange tracking-widest">01</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Site Catering</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+              Daily catering for remote sites, industrial facilities and workforce camps.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:border-brandOrange transition">
+            <div class="text-xs font-extrabold text-brandOrange tracking-widest">02</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">In-House Catering</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+              Kitchen and dining operations within client facilities and residences.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:border-brandOrange transition">
+            <div class="text-xs font-extrabold text-brandOrange tracking-widest">03</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Central Production</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+              High-volume preparation through controlled kitchen workflows.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:border-brandOrange transition">
+            <div class="text-xs font-extrabold text-brandOrange tracking-widest">04</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Packed Meals</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+              Individual and bulk meal packs designed for safe distribution.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:border-brandOrange transition">
+            <div class="text-xs font-extrabold text-brandOrange tracking-widest">05</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Hospitality Dining</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+              Buffet, staff restaurant and managed dining-room services.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:border-brandOrange transition">
+            <div class="text-xs font-extrabold text-brandOrange tracking-widest">06</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Special Menus</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+              Culturally appropriate, dietary and nutrition-controlled meal options.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:border-brandOrange transition">
+            <div class="text-xs font-extrabold text-brandOrange tracking-widest">07</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Food Logistics</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+              Insulated transport, refrigerated delivery and scheduled handover.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm hover:border-brandOrange transition">
+            <div class="text-xs font-extrabold text-brandOrange tracking-widest">08</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Event Catering</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+              Planned catering support for meetings, functions and large gatherings.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bilingual Our Services / خدماتنا (Page 9) -->
+      <div class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+            <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slateDark">Our Services</h3>
+            <span class="text-xs font-bold text-brandOrange">PAGE 09</span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-600">
+            Ghrs Food Services Company offers a wide range of catering services, including:
+          </p>
+          <ol class="space-y-2.5 text-xs sm:text-sm text-gray-700 list-decimal list-inside font-medium">
+            <li>Daily catering services (for companies, factories, and fieldwork projects).</li>
+            <li>Meal preparation for educational institutions and hospitals.</li>
+            <li>Catering for major events and occasions.</li>
+            <li>Special meals (diet, vegetarian, cultural).</li>
+            <li>Internal and external food supply and distribution services.</li>
+          </ol>
+        </div>
+
+        <div class="arabic-text space-y-4 border-t lg:border-t-0 lg:border-r border-gray-100 pt-6 lg:pt-0 lg:pr-8">
+          <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+            <h3 class="text-xl sm:text-2xl font-extrabold text-slateDark">خدماتنا</h3>
+            <span class="text-xs font-bold text-brandOrange">AL FANIYA</span>
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            تقدم شركة غرس للخدمات الغذائية مجموعة من خدمات الإعاشة تشمل:
+          </p>
+          <ul class="space-y-2 text-sm text-gray-700 leading-relaxed">
+            <li>1. خدمات الإعاشة اليومية (للشركات والمصانع والمشاريع الميدانية).</li>
+            <li>2. تجهيز وجبات للمؤسسات التعليمية والمستشفيات.</li>
+            <li>3. خدمات المناسبات والفعاليات الكبرى.</li>
+            <li>4. توفير وجبات خاصة (حمية - نباتية - ثقافية).</li>
+            <li>5. خدمات التموين والتوزيع الداخلي والخارجي.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Spotlight 1: SITE CATERING (Page 22) -->
+      <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm grid grid-cols-1 lg:grid-cols-12">
+        <div class="lg:col-span-6 relative aspect-[4/3] lg:aspect-auto min-h-[280px] bg-slateCharcoal" data-slot-container="page-22-site-catering.jpg">
+          <img data-slot="page-22-site-catering.jpg" src="images/page-22-site-catering.jpg" alt="Site Catering serving line and workforce dining" class="slot-image" />
+          <div class="slot-placeholder w-full h-full flex flex-col items-center justify-center p-6 text-center text-white">
+            <span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-brandOrange/20 text-brandOrange mb-2">
+              PDF Page 22 • Site Catering Photo
+            </span>
+            <p class="font-mono text-xs sm:text-sm font-bold break-all">page-22-site-catering.jpg</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 p-6 sm:p-10 flex flex-col justify-center space-y-4">
+          <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+            SITE CATERING • AL FANIYA INTERNATIONAL COMPANY LIMITED
+          </div>
+          <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-slateDark">
+            Meals where the operation happens.
+          </h3>
+          <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+            Structured meal service for remote sites, workforce camps, industrial projects and high-demand institutional environments.
+          </p>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-800 font-medium pt-1">
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Breakfast, lunch, dinner and shift meals</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>On-site serving lines or packed distribution</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Daily demand forecasting and portion control</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Dedicated supervisors and service crews</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Service continuity across changing headcounts</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Spotlight 2: IN-HOUSE CATERING (Page 23) -->
+      <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm grid grid-cols-1 lg:grid-cols-12">
+        <div class="lg:col-span-6 p-6 sm:p-10 flex flex-col justify-center space-y-4 order-2 lg:order-1">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+              IN-HOUSE CATERING • 05
+            </span>
+            <span class="text-[11px] font-bold uppercase text-gray-400">AL FANIYA INSTITUTIONAL CATERING</span>
+          </div>
+          <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-slateDark">
+            Dining managed inside your facility
+          </h3>
+          <p class="text-xs sm:text-sm font-semibold text-gray-700">
+            A complete operating package:
+          </p>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-800 font-medium">
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Menu cycles and consumption planning</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Kitchen and dining-room staffing</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Buffet replenishment and queue management</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Hygiene, cleaning and waste controls</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Guest feedback and service reporting</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Equipment coordination and daily readiness</span></li>
+          </ul>
+
+          <div class="pt-3 border-t border-gray-100 flex flex-wrap gap-2 text-[11px] font-bold uppercase tracking-wider text-slateDark">
+            <span class="px-3 py-1 rounded-md bg-alabaster border border-gray-200">STAFF RESTAURANTS</span>
+            <span class="px-3 py-1 rounded-md bg-alabaster border border-gray-200">DINING HALLS</span>
+            <span class="px-3 py-1 rounded-md bg-alabaster border border-gray-200">RESIDENTIAL FACILITIES</span>
+          </div>
+          <p class="text-xs text-gray-500 italic">
+            Designed for a consistent dining experience — every meal, every shift.
+          </p>
+        </div>
+
+        <div class="lg:col-span-6 relative aspect-[4/3] lg:aspect-auto min-h-[280px] bg-slateCharcoal order-1 lg:order-2" data-slot-container="page-23-inhouse-dining.jpg">
+          <img data-slot="page-23-inhouse-dining.jpg" src="images/page-23-inhouse-dining.jpg" alt="In-House Catering buffet line and dining room" class="slot-image" />
+          <div class="slot-placeholder w-full h-full flex flex-col items-center justify-center p-6 text-center text-white">
+            <span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-brandOrange/20 text-brandOrange mb-2">
+              PDF Page 23 • In-House Catering Photo
+            </span>
+            <p class="font-mono text-xs sm:text-sm font-bold break-all">page-23-inhouse-dining.jpg</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spotlight 3: CENTRAL KITCHEN OPERATIONS (Page 24) -->
+      <div class="bg-slateDark text-white rounded-2xl p-6 sm:p-10 shadow-xl space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+              CENTRAL KITCHEN OPERATIONS • 06
+            </span>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold mt-1">
+              Production built around control
+            </h3>
+          </div>
+          <span class="text-xs text-gray-400">AL FANIYA INTERNATIONAL COMPANY LIMITED</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div class="bg-slateCharcoal rounded-xl p-5 border border-white/10">
+            <div class="text-brandOrange font-display font-extrabold text-lg">01</div>
+            <div class="font-display font-bold text-white mt-1">Planning</div>
+            <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">Daily volumes, menus, shifts and dispatch windows</p>
+          </div>
+
+          <div class="bg-slateCharcoal rounded-xl p-5 border border-white/10">
+            <div class="text-brandOrange font-display font-extrabold text-lg">02</div>
+            <div class="font-display font-bold text-white mt-1">Preparation</div>
+            <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">Sanitized work zones, controlled recipes and portions</p>
+          </div>
+
+          <div class="bg-slateCharcoal rounded-xl p-5 border border-white/10">
+            <div class="text-brandOrange font-display font-extrabold text-lg">03</div>
+            <div class="font-display font-bold text-white mt-1">Cooking</div>
+            <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">Batch execution, time and temperature monitoring</p>
+          </div>
+
+          <div class="bg-slateCharcoal rounded-xl p-5 border border-white/10">
+            <div class="text-brandOrange font-display font-extrabold text-lg">04</div>
+            <div class="font-display font-bold text-white mt-1">Packing</div>
+            <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">Food-safe containers, labels and protected holding</p>
+          </div>
+
+          <div class="bg-slateCharcoal rounded-xl p-5 border border-white/10">
+            <div class="text-brandOrange font-display font-extrabold text-lg">05</div>
+            <div class="font-display font-bold text-white mt-1">Dispatch</div>
+            <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">Route staging, insulated transport and handover logs</p>
+          </div>
+        </div>
+
+        <p class="text-xs sm:text-sm text-gray-300 pt-2 border-t border-white/10">
+          Standardized operating procedures connect every stage from demand forecast to final meal handover.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       6. WORKFLOWS, MENUS, QUALITY ASSURANCE & LOGISTICS
+          (PDF Pages 10–12, 33–37, 39)
+  ========================================================= -->
+  <section id="operations" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+
+      <!-- Meal Production Process: 7-Stage Workflow (Page 33) -->
+      <div class="space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+              MEAL PRODUCTION PROCESS • 07
+            </span>
+            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slateDark mt-1">
+              A disciplined seven-stage workflow
+            </h2>
+          </div>
+          <span class="text-xs font-semibold text-gray-500">AL FANIYA INSTITUTIONAL CATERING</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-3">
+          <div class="rounded-xl border border-gray-200 bg-alabaster p-4">
+            <div class="text-xs font-extrabold text-brandOrange">01</div>
+            <div class="font-display font-extrabold text-sm text-slateDark mt-1">PLAN</div>
+            <p class="text-xs text-gray-600 mt-1">Demand, shifts, menus</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-alabaster p-4">
+            <div class="text-xs font-extrabold text-brandOrange">02</div>
+            <div class="font-display font-extrabold text-sm text-slateDark mt-1">SOURCE</div>
+            <p class="text-xs text-gray-600 mt-1">Approved food suppliers</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-alabaster p-4">
+            <div class="text-xs font-extrabold text-brandOrange">03</div>
+            <div class="font-display font-extrabold text-sm text-slateDark mt-1">RECEIVE</div>
+            <p class="text-xs text-gray-600 mt-1">Inspection and storage</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-alabaster p-4">
+            <div class="text-xs font-extrabold text-brandOrange">04</div>
+            <div class="font-display font-extrabold text-sm text-slateDark mt-1">PREPARE</div>
+            <p class="text-xs text-gray-600 mt-1">Sanitation and portioning</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-alabaster p-4">
+            <div class="text-xs font-extrabold text-brandOrange">05</div>
+            <div class="font-display font-extrabold text-sm text-slateDark mt-1">COOK</div>
+            <p class="text-xs text-gray-600 mt-1">Batch and temperature control</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-alabaster p-4">
+            <div class="text-xs font-extrabold text-brandOrange">06</div>
+            <div class="font-display font-extrabold text-sm text-slateDark mt-1">PACK</div>
+            <p class="text-xs text-gray-600 mt-1">Protected holding and labels</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-alabaster p-4">
+            <div class="text-xs font-extrabold text-brandOrange">07</div>
+            <div class="font-display font-extrabold text-sm text-slateDark mt-1">DELIVER</div>
+            <p class="text-xs text-gray-600 mt-1">Timed handover and reports</p>
+          </div>
+        </div>
+
+        <div class="bg-slateDark text-white rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-brandOrange">DAILY CONTROL</span>
+          <p class="text-xs sm:text-sm text-gray-200">
+            Quantities produced, meals dispatched, exceptions and feedback are recorded for management review.
+          </p>
+        </div>
+      </div>
+
+      <!-- Menu and Nutrition Capability (Page 34) -->
+      <div class="space-y-6">
+        <div class="max-w-3xl space-y-2">
+          <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+            MENU AND NUTRITION CAPABILITY • 08
+          </span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slateDark">
+            Menus designed for people and performance
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+            Meal plans can be adapted to operational schedules, workforce profiles, nationalities, dietary restrictions and client nutrition standards.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="rounded-2xl border border-gray-200 p-6 bg-alabaster">
+            <div class="text-xs font-extrabold text-brandOrange">1</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Arabic & Gulf</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2">
+              Rice dishes, grilled meats, stews, breads and traditional accompaniments.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 p-6 bg-alabaster">
+            <div class="text-xs font-extrabold text-brandOrange">2</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">South Asian</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2">
+              Pakistani, Indian and regional menus with authentic spice profiles.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 p-6 bg-alabaster">
+            <div class="text-xs font-extrabold text-brandOrange">3</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">International</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2">
+              Balanced continental and Asian options for multicultural teams.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 p-6 bg-alabaster">
+            <div class="text-xs font-extrabold text-brandOrange">4</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Special Diets</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2">
+              Vegetarian, low-salt, diabetic-friendly and allergy-aware options.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 p-6 bg-alabaster">
+            <div class="text-xs font-extrabold text-brandOrange">5</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Shift Meals</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2">
+              Energy-conscious meals and snacks timed around operating shifts.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 p-6 bg-alabaster">
+            <div class="text-xs font-extrabold text-brandOrange">6</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Executive Dining</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-2">
+              Refined presentation and hospitality service for formal settings.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quality Assurance: 8 Control Cards (Page 35) + Bilingual What Sets Us Apart (Page 11) -->
+      <div class="space-y-6">
+        <div class="max-w-4xl space-y-2">
+          <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+            QUALITY ASSURANCE • 09
+          </span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slateDark">
+            Food safety at every control point
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+            Our operating plans are structured around recognized HACCP controls, ISO 22000 principles and applicable Saudi health and municipal requirements.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+            <h3 class="font-display font-bold text-slateDark text-sm sm:text-base">Supplier Approval</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Food sourced through approved and documented channels.</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+            <h3 class="font-display font-bold text-slateDark text-sm sm:text-base">Receiving Checks</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Condition, quantity and temperature verified at receipt.</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+            <h3 class="font-display font-bold text-slateDark text-sm sm:text-base">Storage Control</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Chilled, frozen and dry goods separated and monitored.</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+            <h3 class="font-display font-bold text-slateDark text-sm sm:text-base">Personal Hygiene</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">PPE, hand hygiene and role-specific staff training.</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+            <h3 class="font-display font-bold text-slateDark text-sm sm:text-base">Cleaning Program</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Scheduled sanitation for zones, tools, equipment and vehicles.</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+            <h3 class="font-display font-bold text-slateDark text-sm sm:text-base">Temperature Control</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Cooking, holding and transport temperatures recorded.</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+            <h3 class="font-display font-bold text-slateDark text-sm sm:text-base">Traceability</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Batch, production and dispatch information retained.</p>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+            <h3 class="font-display font-bold text-slateDark text-sm sm:text-base">Corrective Action</h3>
+            <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">Exceptions escalated, contained and documented promptly.</p>
+          </div>
+        </div>
+
+        <p class="text-xs text-gray-500 italic">
+          Current certification status and scope should be confirmed against supporting documents before formal submission.
+        </p>
+
+        <!-- Bilingual "What Sets Us Apart / ما يميزنا" (Page 11) -->
+        <div class="bg-alabaster rounded-2xl border border-gray-200 p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4">
+          <div>
+            <h3 class="font-display font-bold text-slateDark text-base mb-2.5">What Sets Us Apart</h3>
+            <ul class="space-y-1.5 text-xs sm:text-sm text-gray-700">
+              <li>• A fully equipped kitchen with the latest technologies and modern equipment.</li>
+              <li>• Full compliance with the standards of the Saudi Food and Drug Authority (SFDA).</li>
+              <li>• Flexible catering contracts suitable for all budgets.</li>
+              <li>• High capacity to fulfill large orders within record time.</li>
+              <li>• A daily quality control system that ensures customer satisfaction.</li>
+            </ul>
+          </div>
+          <div class="arabic-text border-t lg:border-t-0 lg:border-r border-gray-200 pt-4 lg:pt-0 lg:pr-6">
+            <h3 class="font-bold text-slateDark text-base mb-2.5">ما يميزنا</h3>
+            <ul class="space-y-1.5 text-sm text-gray-700">
+              <li>• مطبخ مجهز بأحدث التقنيات والأجهزة الحديثة.</li>
+              <li>• التزام كامل بمعايير الهيئة العامة للغذاء والدواء.</li>
+              <li>• عقود إعاشة مرنة تناسب جميع الميزانيات.</li>
+              <li>• قدرة عالية على تلبية الطلبات الجماعية في وقت قياسي.</li>
+              <li>• نظام مراقبة جودة يومي يضمن رضا العميل.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meal Logistics: "Protected from kitchen to handover." (Page 36) -->
+      <div class="bg-alabaster rounded-2xl border border-gray-200 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+        <div class="lg:col-span-6 p-6 sm:p-10 flex flex-col justify-center space-y-4">
+          <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+            MEAL LOGISTICS • 10
+          </div>
+          <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-slateDark">
+            Protected from kitchen to handover.
+          </h3>
+          <p class="text-xs sm:text-sm text-gray-700 leading-relaxed">
+            Dispatch plans are aligned with meal windows, routes, service locations and site access requirements.
+          </p>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-800 font-medium">
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Food-safe individual or bulk packaging</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Insulated carriers and refrigerated vehicles</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Route and dispatch scheduling</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Vehicle sanitation before and after delivery</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Supervised receipt and quantity reconciliation</span></li>
+            <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Contingency stock and issue escalation</span></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-6 relative aspect-[4/3] lg:aspect-auto min-h-[280px] bg-slateCharcoal" data-slot-container="page-36-meal-logistics.jpg">
+          <img data-slot="page-36-meal-logistics.jpg" src="images/page-36-meal-logistics.jpg" alt="Refrigerated meal logistics vans and insulated meal carriers" class="slot-image" />
+          <div class="slot-placeholder w-full h-full flex flex-col items-center justify-center p-6 text-center text-white">
+            <span class="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-brandOrange/20 text-brandOrange mb-2">
+              PDF Page 36 • Meal Logistics Photo
+            </span>
+            <p class="font-mono text-xs sm:text-sm font-bold break-all">page-36-meal-logistics.jpg</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workforce and Organization (Page 37) -->
+      <div class="space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+              WORKFORCE AND ORGANIZATION • 11
+            </span>
+            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slateDark mt-1">
+              The right people around every meal
+            </h2>
+          </div>
+          <span class="text-xs text-gray-500">AL FANIYA INSTITUTIONAL CATERING</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div class="text-xs font-extrabold text-brandOrange">01</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Executive Chef</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-1.5">Menus, kitchen leadership and production discipline</p>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div class="text-xs font-extrabold text-brandOrange">02</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Production Team</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-1.5">Preparation, cooking, portioning and packing</p>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div class="text-xs font-extrabold text-brandOrange">03</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Food Safety Team</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-1.5">Hygiene, temperature, records and verification</p>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div class="text-xs font-extrabold text-brandOrange">04</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Service Team</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-1.5">Dining hall, buffet, counter and site handover</p>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div class="text-xs font-extrabold text-brandOrange">05</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Logistics Team</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-1.5">Stores, dispatch, vehicles and route coordination</p>
+          </div>
+
+          <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <div class="text-xs font-extrabold text-brandOrange">06</div>
+            <h3 class="font-display text-lg font-extrabold text-slateDark mt-1">Support Team</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-1.5">Cleaning, waste, equipment and facility readiness</p>
+          </div>
+        </div>
+
+        <p class="text-xs sm:text-sm text-gray-600">
+          Staffing plans are scaled to meal volume, operating shifts, service model and site complexity.
+        </p>
+      </div>
+
+      <!-- Mobilization and Performance (Page 39) -->
+      <div class="bg-slateDark text-white rounded-2xl p-6 sm:p-10 shadow-xl space-y-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+              MOBILIZATION AND PERFORMANCE • 13
+            </span>
+            <h2 class="font-display text-2xl sm:text-4xl font-extrabold mt-1">
+              A controlled route from award to service
+            </h2>
+          </div>
+          <span class="text-xs text-gray-400">AL FANIYA INSTITUTIONAL CATERING</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-slateCharcoal rounded-xl p-5 border border-white/10">
+            <div class="text-brandOrange font-display font-extrabold text-lg">01</div>
+            <div class="font-display font-bold text-white text-base mt-1">Confirm</div>
+            <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">Scope, headcount, locations, schedules and standards</p>
+          </div>
+
+          <div class="bg-slateCharcoal rounded-xl p-5 border border-white/10">
+            <div class="text-brandOrange font-display font-extrabold text-lg">02</div>
+            <div class="font-display font-bold text-white text-base mt-1">Design</div>
+            <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">Menus, staffing, sourcing, kitchen and logistics plan</p>
+          </div>
+
+          <div class="bg-slateCharcoal rounded-xl p-5 border border-white/10">
+            <div class="text-brandOrange font-display font-extrabold text-lg">03</div>
+            <div class="font-display font-bold text-white text-base mt-1">Mobilize</div>
+            <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">People, equipment, suppliers, training and site readiness</p>
+          </div>
+
+          <div class="bg-slateCharcoal rounded-xl p-5 border border-white/10">
+            <div class="text-brandOrange font-display font-extrabold text-lg">04</div>
+            <div class="font-display font-bold text-white text-base mt-1">Operate</div>
+            <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">Production, service, reporting and continuous improvement</p>
+          </div>
+        </div>
+
+        <!-- Performance Dashboard -->
+        <div class="bg-slateCharcoal/90 rounded-2xl p-6 border border-brandOrange/30">
+          <h3 class="font-display text-base sm:text-lg font-extrabold text-brandOrange uppercase tracking-wider mb-4">
+            Performance dashboard
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm font-medium text-gray-100">
+            <div class="flex items-center gap-2.5 bg-slateDark/70 px-4 py-3 rounded-lg border border-white/5">
+              <span class="w-2 h-2 rounded-full bg-brandOrange shrink-0"></span>
+              <span>Meals produced vs. plan</span>
+            </div>
+            <div class="flex items-center gap-2.5 bg-slateDark/70 px-4 py-3 rounded-lg border border-white/5">
+              <span class="w-2 h-2 rounded-full bg-brandOrange shrink-0"></span>
+              <span>On-time delivery</span>
+            </div>
+            <div class="flex items-center gap-2.5 bg-slateDark/70 px-4 py-3 rounded-lg border border-white/5">
+              <span class="w-2 h-2 rounded-full bg-brandOrange shrink-0"></span>
+              <span>Temperature compliance</span>
+            </div>
+            <div class="flex items-center gap-2.5 bg-slateDark/70 px-4 py-3 rounded-lg border border-white/5">
+              <span class="w-2 h-2 rounded-full bg-brandOrange shrink-0"></span>
+              <span>Food waste</span>
+            </div>
+            <div class="flex items-center gap-2.5 bg-slateDark/70 px-4 py-3 rounded-lg border border-white/5">
+              <span class="w-2 h-2 rounded-full bg-brandOrange shrink-0"></span>
+              <span>Service complaints</span>
+            </div>
+            <div class="flex items-center gap-2.5 bg-slateDark/70 px-4 py-3 rounded-lg border border-white/5">
+              <span class="w-2 h-2 rounded-full bg-brandOrange shrink-0"></span>
+              <span>Corrective-action closure</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       7. TRACK RECORD, CLIENTS & SUPPLY PARTNERS (Pages 13–14, 38)
+  ========================================================= -->
+  <section id="track-record" class="py-16 sm:py-24 bg-alabaster border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+      <!-- Operating Track Record (Page 38) -->
+      <div class="space-y-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+              OPERATING TRACK RECORD • 12
+            </span>
+            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slateDark mt-1">
+              Experience available through specialist delivery partner
+            </h2>
+          </div>
+          <span class="text-xs text-gray-500">AL FANIYA INSTITUTIONAL CATERING</span>
+        </div>
+
+        <!-- KPI Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm text-center">
+            <div class="font-display text-4xl sm:text-5xl font-extrabold text-brandOrange">24+</div>
+            <div class="font-display font-bold text-slateDark text-sm sm:text-base mt-2">
+              years of operational catering experience
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm text-center">
+            <div class="font-display text-4xl sm:text-5xl font-extrabold text-brandOrange">300,000</div>
+            <div class="font-display font-bold text-slateDark text-sm sm:text-base mt-2">
+              pilgrims reported as served
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm text-center">
+            <div class="font-display text-4xl sm:text-5xl font-extrabold text-brandOrange">95%</div>
+            <div class="font-display font-bold text-slateDark text-sm sm:text-base mt-2">
+              reported customer satisfaction rate
+            </div>
+          </div>
+        </div>
+
+        <!-- Partner-reported highlights & IMPORTANT compliance note -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 space-y-3">
+            <h3 class="font-display font-extrabold text-slateDark text-base sm:text-lg">
+              Partner-reported experience includes:
+            </h3>
+            <ul class="space-y-2 text-xs sm:text-sm text-gray-700 font-medium">
+              <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Annual high-volume catering operations</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Service to diverse groups from Asia and Africa</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Engagements with official Hajj missions</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Hotel, camp and packaged meal operations</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-brandOrange font-bold">•</span><span>Multinational menus and country-specific culinary teams</span></li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-5 bg-slateDark text-white rounded-2xl p-6 sm:p-8 border border-brandOrange/40 flex flex-col justify-between">
+            <div class="space-y-2">
+              <span class="inline-block px-2.5 py-1 rounded bg-brandOrange text-white text-[11px] font-extrabold uppercase tracking-wider">
+                IMPORTANT
+              </span>
+              <p class="text-xs sm:text-sm text-gray-200 leading-relaxed pt-2">
+                These statistics and related references belong to the specialist catering partner. Formal submissions should include a signed cooperation agreement and current supporting evidence.
+              </p>
+            </div>
+            <div class="text-[11px] text-gray-400 pt-4 border-t border-white/10 mt-4">
+              AL FANIYA INTERNATIONAL COMPANY LIMITED
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Our Clients / عملاؤنا (Page 13) -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-5">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slateDark">Our Clients</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-1">
+              We are proud to serve a number of distinguished entities in both the public and private sectors, including:
+            </p>
+          </div>
+          <span class="arabic-text text-xl font-extrabold text-brandOrange">عملاؤنا</span>
+        </div>
+
+        <p class="arabic-text text-sm text-gray-700 leading-loose border-b border-gray-100 pb-4">
+          نفخر بتقديم خدماتنا لعدد من الجهات المرموقة في القطاعين العام والخاص، من بينها:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-xl bg-alabaster border border-gray-200">
+            <div class="font-bold text-slateDark">FOUJ ALHUDA</div>
+            <div class="arabic-text text-gray-700 mt-0.5">ركب الهدى • شركة الفرائض المحدودة • تصريح وزارة الحج 10137</div>
+          </div>
+          <div class="p-4 rounded-xl bg-alabaster border border-gray-200">
+            <div class="font-bold text-slateDark">ALETQAN</div>
+            <div class="arabic-text text-gray-700 mt-0.5">شركة الإتقان لخدمات حجاج الداخل</div>
+          </div>
+          <div class="p-4 rounded-xl bg-alabaster border border-gray-200">
+            <div class="font-bold text-slateDark">United Mashair / المشاعر المتحدة</div>
+            <div class="arabic-text text-gray-700 mt-0.5">شركة المشاعر المتحدة لخدمات حجاج الداخل المحدودة</div>
+          </div>
+          <div class="p-4 rounded-xl bg-alabaster border border-gray-200">
+            <div class="font-bold text-slateDark">Abu Sarhad / أبو سرهد</div>
+            <div class="arabic-text text-gray-700 mt-0.5">خدمات حجاج الداخل والمعتمرين</div>
+          </div>
+          <div class="p-4 rounded-xl bg-alabaster border border-gray-200">
+            <div class="font-bold text-slateDark">Shams Taibah / شمس طيبة</div>
+            <div class="arabic-text text-gray-700 mt-0.5">شركة شمس طيبة لخدمات حجاج الداخل</div>
+          </div>
+          <div class="p-4 rounded-xl bg-alabaster border border-gray-200">
+            <div class="font-bold text-slateDark">Hashem for Hajj / حجاج الداخل</div>
+            <div class="arabic-text text-gray-700 mt-0.5">تصريح حج رقم (10021) • شركة الحملة الراقية رقم التصريح 10157</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Supply Partners / شركاء التوريد (Page 14) -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-5">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slateDark">Supply partners</h3>
+            <p class="text-xs sm:text-sm text-gray-600 mt-1">
+              Sourcing through approved Saudi & regional food suppliers featured on Page 14.
+            </p>
+          </div>
+          <span class="arabic-text text-xl font-extrabold text-brandOrange">شركاء التوريد</span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 text-center">
+          <div class="p-3.5 rounded-xl bg-alabaster border border-gray-200 font-bold text-slateDark text-xs sm:text-sm">
+            Almarai <span class="block arabic-text text-xs font-normal text-gray-600">المراعي</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-alabaster border border-gray-200 font-bold text-slateDark text-xs sm:text-sm">
+            Al Safi <span class="block arabic-text text-xs font-normal text-gray-600">الصافي</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-alabaster border border-gray-200 font-bold text-slateDark text-xs sm:text-sm">
+            Al.Aila <span class="block arabic-text text-xs font-normal text-gray-600">العائلة</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-alabaster border border-gray-200 font-bold text-slateDark text-xs sm:text-sm">
+            Radwa Chicken <span class="block arabic-text text-xs font-normal text-gray-600">دجاج رضوى</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-alabaster border border-gray-200 font-bold text-slateDark text-xs sm:text-sm">
+            Khair & Barakah <span class="block arabic-text text-xs font-normal text-gray-600">خير وبركة</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-alabaster border border-gray-200 font-bold text-slateDark text-xs sm:text-sm">
+            Nadec <span class="block arabic-text text-xs font-normal text-gray-600">نادك</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-alabaster border border-gray-200 font-bold text-slateDark text-xs sm:text-sm">
+            Goody <span class="block arabic-text text-xs font-normal text-gray-600">قودي</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-alabaster border border-gray-200 font-bold text-slateDark text-xs sm:text-sm">
+            Luna <span class="block arabic-text text-xs font-normal text-gray-600">لونا</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-alabaster border border-gray-200 font-bold text-slateDark text-xs sm:text-sm">
+            Freshly <span class="block arabic-text text-xs font-normal text-gray-600">فرشلي</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-alabaster border border-gray-200 font-bold text-slateDark text-xs sm:text-sm">
+            OMACO <span class="block arabic-text text-xs font-normal text-gray-600">وماكو</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-alabaster border border-gray-200 font-bold text-slateDark text-xs sm:text-sm">
+            Baja <span class="block arabic-text text-xs font-normal text-gray-600">باجة</span>
+          </div>
+          <div class="p-3.5 rounded-xl bg-alabaster border border-gray-200 font-bold text-slateDark text-xs sm:text-sm">
+            L'usine <span class="block arabic-text text-xs font-normal text-gray-600">لوزين</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       8. OFFICIAL CREDENTIALS & APPRECIATIONS (PDF Pages 25–30)
+  ========================================================= -->
+  <section id="credentials" class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+      <div class="max-w-3xl space-y-2">
+        <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+          LICENSING, RESIDENCY & RECOGNITIONS • PAGES 25–30
+        </span>
+        <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slateDark">
+          Official Credentials & Appreciations
+        </h2>
+      </div>
+
+      <!-- Commercial Registration Data + Image Slot (Pages 25 & 26) -->
+      <div class="bg-alabaster rounded-2xl border border-gray-200 p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="font-display text-xl sm:text-2xl font-extrabold text-slateDark">
+              Commercial Registration & Ministry of Commerce
+            </h3>
+            <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
+              Active / نشط
+            </span>
+          </div>
+
+          <dl class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="bg-white p-3.5 rounded-xl border border-gray-200">
+              <dt class="text-gray-500 font-semibold">Entity Name</dt>
+              <dd class="font-bold text-slateDark mt-0.5">alfniya alealamia Company Ltd. shakhs wahid</dd>
+              <dd class="arabic-text text-xs text-gray-600 mt-0.5">شركة الفنية العالمية المحدودة شخص واحد</dd>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-gray-200">
+              <dt class="text-gray-500 font-semibold">Unified National Number</dt>
+              <dd class="font-mono font-bold text-slateDark mt-0.5">7036878663</dd>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-gray-200">
+              <dt class="text-gray-500 font-semibold">CR Number</dt>
+              <dd class="font-mono font-bold text-slateDark mt-0.5">4031288437</dd>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-gray-200">
+              <dt class="text-gray-500 font-semibold">Issue / Confirmation Dates</dt>
+              <dd class="font-bold text-slateDark mt-0.5">G 2023-10-04 (H 19-03-1445)</dd>
+              <dd class="text-xs text-gray-600">Confirmed: G 2027-09-11 (H 10-04-1449)</dd>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-gray-200">
+              <dt class="text-gray-500 font-semibold">Address</dt>
+              <dd class="font-semibold text-slateDark mt-0.5">MAKKAH Al Hindawiyah Dist. Al Hindawiya Western 203</dd>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-gray-200">
+              <dt class="text-gray-500 font-semibold">Total Capital Value</dt>
+              <dd class="font-mono font-bold text-brandOrange mt-0.5">8,500,000.00</dd>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-gray-200 sm:col-span-2">
+              <dt class="text-gray-500 font-semibold">CR Contact Details</dt>
+              <dd class="font-semibold text-slateDark mt-0.5">
+                Mobile: <span class="font-mono">00966597008100</span> &nbsp;|&nbsp; Email: <span class="font-mono">Tahiryousaf989@gmail.com</span>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-slateCharcoal border border-gray-200" data-slot-container="page-26-cr-certificate.jpg">
+            <img data-slot="page-26-cr-certificate.jpg" src="images/page-26-cr-certificate.jpg" alt="Commercial Registration certificate details" class="slot-image" />
+            <div class="slot-placeholder w-full h-full flex flex-col items-center justify-center p-5 text-center text-white">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-brandOrange/20 text-brandOrange mb-2">
+                PDF Pages 25–26 • CR Document Slot
+              </span>
+              <p class="font-mono text-xs sm:text-sm font-bold break-all">page-26-cr-certificate.jpg</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Credentials & Awards Grid (Pages 27–30) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Page 27: Premium Residency -->
+        <div class="rounded-2xl border border-gray-200 bg-alabaster p-4 flex flex-col justify-between space-y-3">
+          <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-slateCharcoal" data-slot-container="page-27-iqama-residency.jpg">
+            <img data-slot="page-27-iqama-residency.jpg" src="images/page-27-iqama-residency.jpg" alt="Premium Residency Identity Tahir Yousaf" class="slot-image" />
+            <div class="slot-placeholder w-full h-full flex flex-col items-center justify-center p-4 text-center text-white">
+              <span class="text-[10px] font-bold uppercase text-brandOrange mb-1">PDF Page 27</span>
+              <p class="font-mono text-xs font-bold break-all">page-27-iqama-residency.jpg</p>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-slateDark text-sm">Premium Residency / الإقامة المميزة</h3>
+            <p class="text-xs text-gray-700 mt-1">TAHIR YOUSAF MUHAMMAD YOUSAF • <span class="arabic-text">طاهر يوسف محمد يوسف</span></p>
+            <p class="text-[11px] text-gray-500 mt-1">Expiry: 15/03/2035 • Makkah Passports • General Manager</p>
+          </div>
+        </div>
+
+        <!-- Page 28: Flynas Hajj Operation 2024 Awards -->
+        <div class="rounded-2xl border border-gray-200 bg-alabaster p-4 flex flex-col justify-between space-y-3">
+          <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-slateCharcoal" data-slot-container="page-28-flynas-awards.jpg">
+            <img data-slot="page-28-flynas-awards.jpg" src="images/page-28-flynas-awards.jpg" alt="Flynas Performance Award Hajj Operation 2024" class="slot-image" />
+            <div class="slot-placeholder w-full h-full flex flex-col items-center justify-center p-4 text-center text-white">
+              <span class="text-[10px] font-bold uppercase text-brandOrange mb-1">PDF Page 28</span>
+              <p class="font-mono text-xs font-bold break-all">page-28-flynas-awards.jpg</p>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-slateDark text-sm">Flynas Hajj Operation 2024 Awards</h3>
+            <p class="text-xs text-gray-700 mt-1">Performance Award & Appreciation — Tahir Yousaf & Al Faniya International Co. Ltd.</p>
+            <p class="text-[11px] text-gray-500 mt-1">Al Hidaya Towers Hotel, Makkah, KSA (1445 / 2024)</p>
+          </div>
+        </div>
+
+        <!-- Page 29: Indian Haj Pilgrimage Office Appreciation -->
+        <div class="rounded-2xl border border-gray-200 bg-alabaster p-4 flex flex-col justify-between space-y-3">
+          <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-slateCharcoal" data-slot-container="page-29-india-hajj-letter.jpg">
+            <img data-slot="page-29-india-hajj-letter.jpg" src="images/page-29-india-hajj-letter.jpg" alt="Letter of Appreciation Indian Haj Pilgrimage Office" class="slot-image" />
+            <div class="slot-placeholder w-full h-full flex flex-col items-center justify-center p-4 text-center text-white">
+              <span class="text-[10px] font-bold uppercase text-brandOrange mb-1">PDF Page 29</span>
+              <p class="font-mono text-xs font-bold break-all">page-29-india-hajj-letter.jpg</p>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-slateDark text-sm">Indian Haj Pilgrimage Office Letter</h3>
+            <p class="text-xs text-gray-700 mt-1">Presented to Mr. Taher Yousaf, Support Specialist, Center 35 — Branch 12</p>
+            <p class="text-[11px] text-gray-500 mt-1">Haj Session 1447H / 2026G • Makkah</p>
+          </div>
+        </div>
+
+        <!-- Page 30: Ministry of Hajj & Umrah / Supreme Hajj Committee -->
+        <div class="rounded-2xl border border-gray-200 bg-alabaster p-4 flex flex-col justify-between space-y-3">
+          <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-slateCharcoal" data-slot-container="page-30-supreme-hajj-awards.jpg">
+            <img data-slot="page-30-supreme-hajj-awards.jpg" src="images/page-30-supreme-hajj-awards.jpg" alt="Ministry of Hajj and Umrah and Supreme Hajj Committee appreciation" class="slot-image" />
+            <div class="slot-placeholder w-full h-full flex flex-col items-center justify-center p-4 text-center text-white">
+              <span class="text-[10px] font-bold uppercase text-brandOrange mb-1">PDF Page 30</span>
+              <p class="font-mono text-xs font-bold break-all">page-30-supreme-hajj-awards.jpg</p>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-slateDark text-sm">Hajj 1447 AH Recognition</h3>
+            <p class="text-xs text-gray-700 mt-1">Supreme Hajj Committee & Ministry of Hajj and Umrah appreciation for Tahir Yousaf Muhammad Yousaf.</p>
+            <p class="text-[11px] text-gray-500 mt-1">Serving the Guests of Allah • 1447 AH</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       9. VISUAL GALLERY & FIELD OPERATIONS SLOTS
+          (PDF Pages 7, 8, 10, 11, 12, 14, 15, 16, 20, 31, 32)
+  ========================================================= -->
+  <section id="gallery" class="py-16 sm:py-24 bg-alabaster border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div class="space-y-2 max-w-3xl">
+          <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-brandOrange">
+            CULINARY, DINING & FIELD OPERATIONS GALLERY
+          </span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-slateDark">
+            Exact Image Slots Across the Profile
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-600">
+            Each card below corresponds directly to photos appearing in the PDF so you can drop your extracted images into matching filenames seamlessly.
+          </p>
+        </div>
+      </div>
+
+      <div id="gallerySlotsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <!-- Cards rendered cleanly via JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       10. READY TO DELIVER / CONTACT FOOTER (PDF Page 39)
+  ========================================================= -->
+  <footer id="ready-to-deliver" class="bg-slateDark text-white pt-16 pb-10 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+
+        <!-- Left Contact & Readiness Block -->
+        <div class="lg:col-span-7 space-y-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandOrange/15 border border-brandOrange/40 text-brandOrange text-xs font-extrabold uppercase tracking-widest">
+            <span>READY TO DELIVER</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+            Catering built <span class="text-brandOrange">around your operation.</span>
+          </h2>
+
+          <div class="space-y-1.5 text-sm sm:text-base text-gray-200 pt-1">
+            <p class="font-bold text-white text-base sm:text-lg">Al Faniya International Company Limited</p>
+            <p class="text-gray-300">Makkah, Kingdom of Saudi Arabia</p>
+            <p class="text-xs sm:text-sm text-gray-300 font-mono">
+              Commercial Registration: 4031288437
+            </p>
+          </div>
+
+          <!-- Contact Details with Copy Buttons -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="mailto:tahir@alfaniya.net" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brandOrange hover:bg-brandOrangeHover text-white text-xs sm:text-sm font-bold transition">
+              <span>tahir@alfaniya.net</span>
+            </a>
+
+            <button type="button" data-copy="tahir@alfaniya.net" class="copy-btn px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-semibold text-gray-200 transition">
+              Copy Email
+            </button>
+
+            <a href="tel:+966591888898" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slateCharcoal hover:bg-slateMid border border-white/15 text-white text-xs sm:text-sm font-bold transition">
+              <span>+966 59 188 8898</span>
+            </a>
+
+            <button type="button" data-copy="+966 59 188 8898" class="copy-btn px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-semibold text-gray-200 transition">
+              Copy Phone
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Summary Card (Matching Page 39 Dark Card) -->
+        <div class="lg:col-span-5">
+          <div class="bg-slateCharcoal rounded-2xl p-6 sm:p-8 border border-white/15 shadow-2xl space-y-5">
+            <div class="text-xs font-extrabold uppercase tracking-[0.2em] text-brandOrange">
+              INSTITUTIONAL CATERING
+            </div>
+
+            <div class="space-y-2 font-display text-lg sm:text-xl font-extrabold text-white">
+              <div>Site catering | In-house dining</div>
+              <div>Central production | Meal logistics</div>
+            </div>
+
+            <p class="text-xs sm:text-sm text-gray-300 pt-3 border-t border-white/10">
+              Quality, control and service continuity.
+            </p>
+
+            <!-- Footer Kitchen Image Slot: page-39-footer-kitchen.jpg -->
+            <div class="relative rounded-xl overflow-hidden aspect-[16/9] bg-slateDark border border-white/10" data-slot-container="page-39-footer-kitchen.jpg">
+              <img data-slot="page-39-footer-kitchen.jpg" src="images/page-39-footer-kitchen.jpg" alt="AL FANIYA institutional kitchen operations" class="slot-image" />
+              <div class="slot-placeholder w-full h-full flex flex-col items-center justify-center p-3 text-center">
+                <span class="text-[10px] font-bold uppercase text-brandOrange">PDF Page 39 Slot</span>
+                <p class="font-mono text-xs text-gray-300 break-all">page-39-footer-kitchen.jpg</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Line -->
+      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <div>
+          © <span id="yearNow">2026</span> AL FANIYA INTERNATIONAL COMPANY LIMITED. All rights reserved.
+        </div>
+        <div>
+          Capability Profile • Makkah, Kingdom of Saudi Arabia • CR: 4031288437
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       JAVASCRIPT: LANGUAGE TOGGLE, IMAGE SLOT PREVIEWER & COPY
+  ========================================================= -->
+  <script>
+    (function () {
+      // Set current year safely
+      const yearEl = document.getElementById('yearNow');
+      if (yearEl) {
+        yearEl.textContent = String(new Date().getFullYear());
+      }
+
+      // Toast helper (replaces alert())
+      let toastTimer = null;
+      function showToast(message) {
+        const toast = document.getElementById('statusToast');
+        const msgEl = document.getElementById('statusToastMsg');
+        if (!toast || !msgEl) return;
+        msgEl.textContent = message;
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('translate-y-0', 'opacity-100');
+          toast.classList.add('translate-y-24', 'opacity-0');
+        }, 3200);
+      }
+
+      // Complete list of 24 image slots from the 39-page PDF
+      const imageSlotsCatalog = [
+        { file: 'page-01-hero-kitchen.jpg', page: 'Page 1', label: 'Hero Kitchen & Meal Preparation' },
+        { file: 'page-02-ceo-tahir-yousaf.jpg', page: 'Page 2', label: 'CEO Portrait — Mr. Tahir Yousaf' },
+        { file: 'page-07-buffet-chafing.jpg', page: 'Page 7', label: 'Buffet Chafing Dishes & Service' },
+        { file: 'page-08-pastries-breads.jpg', page: 'Page 8', label: 'Bakery Rolls, Pastries & Stands' },
+        { file: 'page-09-main-dish-trays.jpg', page: 'Page 9', label: 'Hot Main Dish Trays & Buns' },
+        { file: 'page-10-grazing-table.jpg', page: 'Page 10', label: 'Hospitality Grazing & Dessert Table' },
+        { file: 'page-11-chef-prep.jpg', page: 'Page 11', label: 'Chef Vegetable Preparation in Kitchen' },
+        { file: 'page-12-steel-kitchen.jpg', page: 'Page 12', label: 'Commercial Stainless Steel Kitchen' },
+        { file: 'page-14-salad-bowls.jpg', page: 'Page 14', label: 'Fresh Greens & Buffet Bowls' },
+        { file: 'page-15-fruit-tiers.jpg', page: 'Page 15', label: 'Multi-Tier Fresh Fruit Displays' },
+        { file: 'page-16-gallery-1.jpg', page: 'Page 16', label: 'Beverage Chillers, Buffets & Fruit' },
+        { file: 'page-17-gallery-2.jpg', page: 'Page 17', label: 'Chafing Lines, Shawarma & Chillers' },
+        { file: 'page-20-dining-hall.jpg', page: 'Page 20', label: 'Executive Dining Hall & Guests' },
+        { file: 'page-22-site-catering.jpg', page: 'Page 22', label: 'Site Catering Serving Line' },
+        { file: 'page-23-inhouse-dining.jpg', page: 'Page 23', label: 'In-House Buffet & Dining Room' },
+        { file: 'page-26-cr-certificate.jpg', page: 'Pages 25–26', label: 'Commercial Registration Certificate' },
+        { file: 'page-27-iqama-residency.jpg', page: 'Page 27', label: 'Premium Residency Identity' },
+        { file: 'page-28-flynas-awards.jpg', page: 'Page 28', label: 'Flynas Hajj 2024 Performance Awards' },
+        { file: 'page-29-india-hajj-letter.jpg', page: 'Page 29', label: 'Indian Haj Pilgrimage Office Letter' },
+        { file: 'page-30-supreme-hajj-awards.jpg', page: 'Page 30', label: 'Hajj 1447 AH Appreciation Shields' },
+        { file: 'page-31-team-gallery-1.jpg', page: 'Page 31', label: 'Team & Award Ceremony Moments 1' },
+        { file: 'page-32-team-gallery-2.jpg', page: 'Page 32', label: 'Flynas & Pilgrim Service Moments 2' },
+        { file: 'page-36-meal-logistics.jpg', page: 'Page 36', label: 'Refrigerated Meal Logistics Vans' },
+        { file: 'page-39-footer-kitchen.jpg', page: 'Page 39', label: 'Footer Institutional Kitchen Photo' }
+      ];
+
+      // Populate slot reference drawer
+      const refGrid = document.getElementById('slotReferenceGrid');
+      if (refGrid) {
+        imageSlotsCatalog.forEach((item) => {
+          const div = document.createElement('div');
+          div.className = 'p-2.5 rounded-lg bg-alabaster border border-gray-200 flex flex-col justify-between';
+          div.innerHTML = `
+            <span class="text-[10px] font-bold uppercase text-brandOrange">${item.page}</span>
+            <code class="font-mono text-[11px] font-bold text-slateDark break-all mt-0.5">${item.file}</code>
+            <span class="text-[11px] text-gray-600 mt-0.5">${item.label}</span>
+          `;
+          refGrid.appendChild(div);
+        });
+      }
+
+      // Toggle slot reference drawer
+      const toggleBtn = document.getElementById('toggleSlotListBtn');
+      const arrowEl = document.getElementById('slotListArrow');
+      if (toggleBtn && refGrid && arrowEl) {
+        toggleBtn.addEventListener('click', () => {
+          const isHidden = refGrid.classList.toggle('hidden');
+          arrowEl.textContent = isHidden ? '▼' : '▲';
+        });
+      }
+
+      // Render gallery cards for gallery slots (Pages 7, 8, 10, 11, 12, 14, 15, 16, 17, 20, 31, 32)
+      const galleryFiles = [
+        'page-07-buffet-chafing.jpg',
+        'page-08-pastries-breads.jpg',
+        'page-09-main-dish-trays.jpg',
+        'page-10-grazing-table.jpg',
+        'page-11-chef-prep.jpg',
+        'page-12-steel-kitchen.jpg',
+        'page-14-salad-bowls.jpg',
+        'page-15-fruit-tiers.jpg',
+        'page-16-gallery-1.jpg',
+        'page-17-gallery-2.jpg',
+        'page-20-dining-hall.jpg',
+        'page-31-team-gallery-1.jpg',
+        'page-32-team-gallery-2.jpg'
+      ];
+
+      const galleryGrid = document.getElementById('gallerySlotsGrid');
+      if (galleryGrid) {
+        galleryFiles.forEach((fileName) => {
+          const meta = imageSlotsCatalog.find((s) => s.file === fileName) || {
+            page: 'PDF',
+            label: fileName
+          };
+
+          const card = document.createElement('div');
+          card.className = 'bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm flex flex-col justify-between';
+          card.innerHTML = `
+            <div class="relative aspect-[4/3] bg-slateCharcoal" data-slot-container="${fileName}">
+              <img data-slot="${fileName}" src="images/${fileName}" alt="${meta.label}" class="slot-image" />
+              <div class="slot-placeholder w-full h-full flex flex-col items-center justify-center p-4 text-center text-white bg-gradient-to-br from-slateCharcoal to-slateMid">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-brandOrange/20 text-brandOrange mb-2">
+                  ${meta.page} Slot
+                </span>
+                <p class="font-mono text-xs font-bold break-all">${fileName}</p>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="text-xs font-bold text-slateDark">${meta.label}</div>
+              <div class="font-mono text-[11px] text-gray-500 mt-1 break-all">${fileName}</div>
+            </div>
+          `;
+          galleryGrid.appendChild(card);
+        });
+      }
+
+      // Attach image load/error handlers to all slot images so broken local relative paths
+      // cleanly show the styled placeholder until the user places or loads the image.
+      function bindSlotImages() {
+        const imgs = document.querySelectorAll('img[data-slot]');
+        imgs.forEach((img) => {
+          img.addEventListener('load', () => {
+            if (img.naturalWidth > 0) {
+              img.classList.add('has-image');
+            }
+          });
+          img.addEventListener('error', () => {
+            img.classList.remove('has-image');
+          });
+          if (img.complete && img.naturalWidth > 0) {
+            img.classList.add('has-image');
+          }
+        });
+      }
+      bindSlotImages();
+
+      // Match uploaded files by slot filename or number (e.g., "page-01..." or "1.jpg" or "page 1")
+      const bulkInput = document.getElementById('bulkImageInput');
+      if (bulkInput) {
+        bulkInput.addEventListener('change', (e) => {
+          try {
+            const files = Array.from(e.target.files || []);
+            if (!files.length) return;
+
+            let matchedCount = 0;
+            const allSlots = Array.from(document.querySelectorAll('img[data-slot]'));
+
+            files.forEach((file) => {
+              const cleanName = file.name.toLowerCase();
+              const objectUrl = URL.createObjectURL(file);
+
+              // Exact or partial slot match
+              let matchedSlots = allSlots.filter((img) => {
+                const slotName = (img.getAttribute('data-slot') || '').toLowerCase();
+                return slotName === cleanName || slotName.includes(cleanName.replace(/\.(png|jpg|jpeg|webp)$/i, ''));
+              });
+
+              // Fallback: match two-digit page number like "01", "02", "22", "36"
+              if (!matchedSlots.length) {
+                const numMatch = cleanName.match(/(\d{1,2})/);
+                if (numMatch) {
+                  const padded = numMatch[1].padStart(2, '0');
+                  matchedSlots = allSlots.filter((img) =>
+                    (img.getAttribute('data-slot') || '').includes(`page-${padded}-`)
+                  );
+                }
+              }
+
+              if (matchedSlots.length) {
+                matchedSlots.forEach((img) => {
+                  img.src = objectUrl;
+                  img.classList.add('has-image');
+                });
+                matchedCount += matchedSlots.length;
+              }
+            });
+
+            if (matchedCount > 0) {
+              showToast(`Loaded ${matchedCount} image slot(s) for live preview.`);
+            } else {
+              showToast('No slot names matched. Name files like page-01-hero-kitchen.jpg or page-02-ceo-tahir-yousaf.jpg.');
+            }
+          } catch (err) {
+            showToast('Unable to preview selected images.');
+          }
+        });
+      }
+
+      // Reset previewed object URLs
+      const resetBtn = document.getElementById('resetSlotsBtn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          const allSlots = document.querySelectorAll('img[data-slot]');
+          allSlots.forEach((img) => {
+            const defaultSrc = img.getAttribute('data-slot');
+            img.classList.remove('has-image');
+            if (defaultSrc) {
+              img.src = defaultSrc;
+            }
+          });
+          if (bulkInput) bulkInput.value = '';
+          showToast('Image slots reset.');
+        });
+      }
+
+      // Language filter toggle (All / EN / AR)
+      const langButtons = document.querySelectorAll('[data-lang-btn]');
+      langButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const selectedLang = btn.getAttribute('data-lang-btn') || 'all';
+          document.body.setAttribute('data-lang', selectedLang);
+
+          langButtons.forEach((b) => {
+            const active = b.getAttribute('data-lang-btn') === selectedLang;
+            b.classList.toggle('bg-brandOrange', active);
+            b.classList.toggle('text-white', active);
+            b.classList.toggle('text-gray-300', !active);
+          });
+        });
+      });
+
+      // Mobile menu toggle
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+      }
+
+      // Copy contact helper using execCommand fallback for iframe safety
+      document.querySelectorAll('.copy-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const textToCopy = btn.getAttribute('data-copy') || '';
+          try {
+            const tempInput = document.createElement('input');
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(`Copied: ${textToCopy}`);
+          } catch (err) {
+            showToast(`Contact: ${textToCopy}`);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
